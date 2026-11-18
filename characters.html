@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Characters | PIXELRIFT</title>
+  <meta name="description" content="Kies je character voor PIXELRIFT.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;700&family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== MENU (staat op elke pagina) ===== -->
+  <header class="topbalk">
+    <a class="logo" href="index.html"><span class="logo-blok"></span>PIXELRIFT</a>
+    <button id="menu-knop" class="menu-knop" aria-label="Menu openen" aria-expanded="false">☰</button>
+    <nav id="menu" class="menu">
+      <a href="index.html">Home</a>
+      <a href="characters.html" class="actief">Characters</a>
+      <a href="play.html" class="knop knop-klein">Speel nu ▶</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="sectie pagina-kop">
+      <p class="label">Kies je speler</p>
+      <h1>Characters</h1>
+      <p class="tagline">Iedereen heeft een eigen stijl. Kies er een en speel daarna de demo met jouw character.</p>
+    </section>
+
+    <section class="sectie">
+      <!-- De kaarten worden gemaakt door js/characters.js -->
+      <div id="character-lijst" class="character-lijst"></div>
+
+      <div class="knoppen naar-game">
+        <a href="play.html" class="knop">Speel met je character ▶</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><strong>PIXELRIFT</strong> is een verzonnen game, gemaakt voor de opendag.</p>
+    <p>© 2026 Nightbyte Studio (ook verzonnen)</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/characters.js"></script>
+</body>
+</html>

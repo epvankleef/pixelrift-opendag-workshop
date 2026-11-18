@@ -1,0 +1,825 @@
+/* =========================================================
+   PIXELRIFT — stylesheet voor alle pagina's
+   Tip: de kleuren en lettertypes staan hieronder bij :root.
+   Pas je daar iets aan, dan verandert het op de hele site.
+   ========================================================= */
+
+/* === KLEUREN EN LETTERTYPES === */
+:root {
+  --kleur-achtergrond: #0b0a12;   /* achtergrond van de pagina */
+  --kleur-vlak: #16141f;          /* achtergrond van kaarten */
+  --kleur-rand: #2c2840;          /* randjes en lijnen */
+  --kleur-tekst: #f2f0f8;         /* gewone tekst */
+  --kleur-tekst-zacht: #aaa4bf;   /* minder belangrijke tekst */
+  --kleur-accent: #c6ff3d;        /* HOOFDKLEUR: knoppen, titels, highlights */
+  --kleur-accent-2: #ff4f7b;      /* tweede kleur: de rift, schaduwen */
+  --kleur-accent-3: #4fd8ff;      /* derde kleur: glitch-effect */
+
+  --font-titel: "Pixelify Sans", "Courier New", monospace;
+  --font-tekst: "Chakra Petch", "Segoe UI", sans-serif;
+
+  --breedte: 1100px;              /* maximale breedte van de inhoud */
+}
+
+/* === BASIS === */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--kleur-achtergrond);
+  /* Pixelraster op de achtergrond */
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: var(--kleur-tekst);
+  font-family: var(--font-tekst);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* CRT-scanlines over de hele pagina (zoals een oud arcadescherm) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(transparent 0 2px, rgba(0, 0, 0, 0.18) 2px 3px);
+  z-index: 100;
+}
+
+main {
+  flex: 1;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-titel);
+  line-height: 1.1;
+  margin: 0 0 0.5em;
+}
+
+a {
+  color: var(--kleur-accent);
+}
+
+/* Verbergt iets op het scherm, maar schermlezers lezen het wel voor */
+.verborgen {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* === KNOPPEN === */
+.knop {
+  display: inline-block;
+  padding: 0.8em 1.4em;
+  background: var(--kleur-accent);
+  color: var(--kleur-achtergrond);
+  font-family: var(--font-titel);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid var(--kleur-accent);
+  box-shadow: 5px 5px 0 var(--kleur-accent-2);
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+
+.knop:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--kleur-accent-2);
+}
+
+.knop:active {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0 var(--kleur-accent-2);
+}
+
+.knop-rand {
+  background: transparent;
+  color: var(--kleur-accent);
+}
+
+.knop-klein {
+  padding: 0.45em 0.9em;
+  font-size: 0.95rem;
+  box-shadow: 3px 3px 0 var(--kleur-accent-2);
+}
+
+/* === MENU (TOPBALK) === */
+.topbalk {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem clamp(1rem, 4vw, 2.5rem);
+  background: color-mix(in srgb, var(--kleur-achtergrond) 85%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--kleur-rand);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--kleur-tekst);
+  font-family: var(--font-titel);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+/* Klein pixel-blokje voor het logo */
+.logo-blok {
+  width: 18px;
+  height: 18px;
+  background: var(--kleur-accent);
+  box-shadow: 6px 6px 0 var(--kleur-accent-2);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.menu a:not(.knop) {
+  color: var(--kleur-tekst-zacht);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.menu a:not(.knop):hover,
+.menu a.actief {
+  color: var(--kleur-accent);
+}
+
+.menu-knop {
+  display: none;
+  background: none;
+  border: 2px solid var(--kleur-rand);
+  color: var(--kleur-tekst);
+  font-size: 1.4rem;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+}
+
+/* === HERO === */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  max-width: var(--breedte);
+  margin: 0 auto;
+  padding: 4rem clamp(1rem, 4vw, 2.5rem);
+  overflow-x: clip; /* de rift mag niet buiten het scherm steken */
+}
+
+.hero-tekst {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+}
+
+.label {
+  display: inline-block;
+  margin: 0 0 1rem;
+  padding: 0.25em 0.7em;
+  border: 2px solid var(--kleur-accent-2);
+  color: var(--kleur-accent-2);
+  font-family: var(--font-titel);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(3.2rem, 13vw, 8rem);
+  letter-spacing: 0.02em;
+  color: var(--kleur-accent);
+  margin-bottom: 0.25em;
+}
+
+.tagline {
+  max-width: 34ch;
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  color: var(--kleur-tekst-zacht);
+  margin: 0 0 2rem;
+}
+
+.knoppen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+/* Hero-elementen komen één voor één binnen bij het laden */
+.hero-tekst > * {
+  animation: binnenkomen 0.6s both;
+}
+.hero-tekst > *:nth-child(2) { animation-delay: 0.1s; }
+.hero-tekst > *:nth-child(3) { animation-delay: 0.25s; }
+.hero-tekst > *:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes binnenkomen {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* === GLITCH-EFFECT op de titel === */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-tekst);
+  position: absolute;
+  inset: 0;
+}
+
+.glitch::before {
+  color: var(--kleur-accent-2);
+  animation: glitch-1 3s infinite steps(1);
+}
+
+.glitch::after {
+  color: var(--kleur-accent-3);
+  animation: glitch-2 3s infinite steps(1);
+}
+
+@keyframes glitch-1 {
+  0%, 86%, 100% { clip-path: inset(100% 0 0 0); transform: none; }
+  88% { clip-path: inset(10% 0 60% 0); transform: translate(-6px, 0); }
+  91% { clip-path: inset(55% 0 20% 0); transform: translate(5px, 0); }
+  94% { clip-path: inset(30% 0 45% 0); transform: translate(-3px, 0); }
+}
+
+@keyframes glitch-2 {
+  0%, 87%, 100% { clip-path: inset(100% 0 0 0); transform: none; }
+  89% { clip-path: inset(70% 0 5% 0); transform: translate(6px, 0); }
+  92% { clip-path: inset(15% 0 70% 0); transform: translate(-5px, 0); }
+  95% { clip-path: inset(40% 0 40% 0); transform: translate(3px, 0); }
+}
+
+/* === DE RIFT (de scheur naast de titel) === */
+.rift {
+  position: absolute;
+  top: 8%;
+  right: clamp(1rem, 8vw, 7rem);
+  width: 120px;
+  height: 84%;
+  z-index: 1;
+}
+
+.rift-scheur {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, var(--kleur-accent), var(--kleur-accent-2) 50%, var(--kleur-accent-3));
+  clip-path: polygon(45% 0, 62% 12%, 50% 22%, 70% 35%, 48% 48%, 66% 60%, 42% 72%, 60% 84%, 50% 100%, 40% 86%, 30% 74%, 44% 62%, 26% 50%, 46% 37%, 30% 25%, 42% 13%);
+  filter: drop-shadow(0 0 18px var(--kleur-accent-2));
+  animation: rift-puls 2.4s ease-in-out infinite;
+}
+
+@keyframes rift-puls {
+  0%, 100% { opacity: 0.85; transform: scaleX(1); }
+  50%      { opacity: 1;    transform: scaleX(1.25); }
+}
+
+/* Pixels die uit de rift ontsnappen */
+.pixel {
+  position: absolute;
+  left: 50%;
+  top: var(--y);
+  width: 12px;
+  height: 12px;
+  background: var(--kleur-accent);
+  animation: pixel-vlucht 3.5s var(--d) ease-out infinite;
+}
+
+.pixel:nth-of-type(even) {
+  background: var(--kleur-accent-2);
+  width: 8px;
+  height: 8px;
+}
+
+@keyframes pixel-vlucht {
+  0%   { opacity: 0; transform: translate(0, 0); }
+  20%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--x), -40px) rotate(90deg); }
+}
+
+/* === SECTIES (algemeen) === */
+.sectie {
+  max-width: var(--breedte);
+  margin: 0 auto;
+  padding: 3.5rem clamp(1rem, 4vw, 2.5rem);
+}
+
+.sectie h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  margin-bottom: 1.5rem;
+}
+
+.nummer {
+  font-size: 0.9rem;
+  padding: 0.2em 0.5em;
+  background: var(--kleur-accent-2);
+  color: var(--kleur-achtergrond);
+}
+
+/* Kaart met afgeknipte pixelhoeken */
+.kaart {
+  background: var(--kleur-vlak);
+  border: 2px solid var(--kleur-rand);
+  padding: 1.5rem;
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+}
+
+/* === COUNTDOWN === */
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.5rem, 2vw, 1.2rem);
+  max-width: 720px;
+}
+
+.tijd-blok {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  background: var(--kleur-vlak);
+  border: 2px solid var(--kleur-accent);
+  box-shadow: 5px 5px 0 var(--kleur-accent-2);
+}
+
+.tijd-blok span {
+  font-family: var(--font-titel);
+  font-size: clamp(2rem, 7vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--kleur-accent);
+}
+
+.tijd-blok small {
+  margin-top: 0.4rem;
+  color: var(--kleur-tekst-zacht);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+}
+
+/* === FEATURES === */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.2rem;
+}
+
+.feature {
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.feature:hover {
+  transform: translateY(-6px);
+  border-color: var(--kleur-accent);
+}
+
+/* Elke tweede kaart staat iets lager: geeft een speels ritme */
+.feature:nth-child(even) {
+  margin-top: 1.5rem;
+}
+
+.feature-icoon {
+  font-size: 2.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.feature p,
+.teamlid p {
+  margin: 0;
+  color: var(--kleur-tekst-zacht);
+}
+
+/* === TEAM === */
+.team {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  background: var(--kleur-achtergrond);
+  border: 2px solid var(--kleur-rand);
+}
+
+.rol {
+  color: var(--kleur-accent-2) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+}
+
+.teamlid-jij {
+  border-color: var(--kleur-accent);
+}
+
+/* === WACHTLIJST === */
+.wachtlijst-kaart {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-color: var(--kleur-accent);
+}
+
+.wachtlijst-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.wachtlijst-form input {
+  flex: 1 1 220px;
+  padding: 0.8em 1em;
+  background: var(--kleur-achtergrond);
+  border: 2px solid var(--kleur-rand);
+  color: var(--kleur-tekst);
+  font-family: var(--font-tekst);
+  font-size: 1.05rem;
+}
+
+.wachtlijst-form input:focus {
+  outline: none;
+  border-color: var(--kleur-accent);
+}
+
+.wachtlijst-bericht {
+  min-height: 1.6em;
+  margin: 1rem 0 0;
+  color: var(--kleur-accent);
+  font-family: var(--font-titel);
+  font-size: 1.2rem;
+}
+
+/* === KOP VAN EEN PAGINA (characters, game) === */
+.pagina-kop {
+  padding-bottom: 0;
+}
+
+.pagina-kop h1 {
+  font-size: clamp(2.6rem, 8vw, 4.5rem);
+  color: var(--kleur-accent);
+}
+
+.pagina-kop .tagline {
+  margin-bottom: 0;
+}
+
+/* === CHARACTERS === */
+.character-lijst {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+.character-kaart {
+  display: flex;
+  flex-direction: column;
+  border-top: 6px solid var(--character-kleur);
+  transition: transform 0.2s;
+}
+
+.character-kaart:hover {
+  transform: translateY(-6px);
+}
+
+/* Het gekozen character licht op */
+.character-kaart.gekozen {
+  border-color: var(--character-kleur);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--character-kleur) 18%, var(--kleur-vlak)), var(--kleur-vlak));
+}
+
+.character-avatar {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+  margin-bottom: 1rem;
+  font-size: 3.4rem;
+  background: var(--kleur-achtergrond);
+  border: 2px solid var(--character-kleur);
+  box-shadow: 5px 5px 0 var(--character-kleur);
+}
+
+.character-kaart h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.character-kaart .rol {
+  margin: 0 0 0.3rem;
+  color: var(--character-kleur) !important;
+}
+
+.quote {
+  flex: 1;
+  margin: 0 0 1rem;
+  color: var(--kleur-tekst-zacht);
+  font-style: italic;
+}
+
+.stat {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--kleur-tekst-zacht);
+}
+
+.stat-balk {
+  height: 10px;
+  background: var(--kleur-achtergrond);
+  border: 1px solid var(--kleur-rand);
+}
+
+.stat-balk div {
+  height: 100%;
+  background: var(--character-kleur);
+}
+
+.kies-knop {
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
+.naar-game {
+  margin-top: 2.5rem;
+}
+
+/* === GAME-PAGINA === */
+[hidden] {
+  display: none !important;
+}
+
+.spel-layout {
+  display: grid;
+  grid-template-columns: auto 280px;
+  justify-content: center;
+  align-items: start;
+  gap: 2rem;
+}
+
+.spel-kolom {
+  /* Het spel is nooit breder dan 480px en past altijd op het scherm */
+  width: min(100%, 480px, calc((100vh - 200px) * 0.75));
+  justify-self: center;
+}
+
+.scorebord {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.6rem;
+  font-family: var(--font-titel);
+  font-size: clamp(1rem, 4vw, 1.3rem);
+}
+
+.geluid-knop {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  background: var(--kleur-vlak);
+  border: 2px solid var(--kleur-rand);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.geluid-knop:hover {
+  border-color: var(--kleur-accent);
+}
+
+.scorebord strong {
+  color: var(--kleur-accent);
+}
+
+.spel-scherm {
+  position: relative;
+  border: 3px solid var(--kleur-accent);
+  box-shadow: 8px 8px 0 var(--kleur-accent-2);
+}
+
+.spel-scherm canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+}
+
+/* Start- en game over-scherm liggen over het spel heen */
+.spel-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem;
+  text-align: center;
+  background: color-mix(in srgb, var(--kleur-achtergrond) 82%, transparent);
+}
+
+.spel-overlay h1,
+.spel-overlay h2 {
+  margin: 0;
+  font-size: clamp(2rem, 9vw, 3.4rem);
+  color: var(--kleur-accent);
+}
+
+.spel-overlay p {
+  margin: 0;
+}
+
+.eind-score {
+  font-family: var(--font-titel);
+  font-size: 1.6rem;
+}
+
+.klein {
+  color: var(--kleur-tekst-zacht);
+  font-size: 0.9rem;
+}
+
+.touch-knoppen {
+  display: none;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.touch-knop {
+  flex: 1;
+  font-size: 1.6rem;
+  padding: 0.5em;
+  touch-action: none;   /* geen zoom of scroll als je de knop ingedrukt houdt */
+  user-select: none;
+}
+
+.spel-uitleg {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.spel-uitleg ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--kleur-tekst-zacht);
+}
+
+.spel-uitleg li {
+  margin-bottom: 0.4rem;
+}
+
+kbd {
+  display: inline-block;
+  padding: 0 0.4em;
+  border: 2px solid var(--kleur-rand);
+  border-bottom-width: 4px;
+  background: var(--kleur-achtergrond);
+  color: var(--kleur-tekst);
+  font-family: var(--font-titel);
+  font-size: 0.85rem;
+}
+
+.dev-notitie {
+  border-color: var(--kleur-accent-2);
+}
+
+.dev-notitie p {
+  margin: 0;
+  color: var(--kleur-tekst-zacht);
+}
+
+code {
+  color: var(--kleur-accent);
+  font-size: 0.95em;
+}
+
+@media (max-width: 900px) {
+  .spel-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Op telefoons en tablets: knoppen onder het spel */
+@media (max-width: 700px), (pointer: coarse) {
+  .touch-knoppen {
+    display: flex;
+  }
+
+  .spel-kolom {
+    width: min(100%, 480px);
+  }
+}
+
+/* === FOOTER === */
+.footer {
+  padding: 2rem clamp(1rem, 4vw, 2.5rem);
+  border-top: 2px solid var(--kleur-rand);
+  color: var(--kleur-tekst-zacht);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer p {
+  margin: 0.2rem 0;
+}
+
+/* === MOBIEL (schermen smaller dan 700px) === */
+@media (max-width: 700px) {
+  .menu-knop {
+    display: block;
+  }
+
+  /* Menu is dicht, tot je op de menuknop drukt */
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: var(--kleur-achtergrond);
+    border-bottom: 2px solid var(--kleur-rand);
+  }
+
+  .menu.open {
+    display: flex;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 3rem;
+  }
+
+  .rift {
+    right: 0;
+    width: 70px;
+    opacity: 0.6;
+  }
+
+  .feature:nth-child(even) {
+    margin-top: 0;
+  }
+
+  .tijd-blok {
+    box-shadow: 3px 3px 0 var(--kleur-accent-2);
+  }
+}
+
+/* Voor mensen die liever geen bewegende dingen zien */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

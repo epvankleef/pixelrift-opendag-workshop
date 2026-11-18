@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speel de demo | PIXELRIFT</title>
+  <meta name="description" content="Speel de demo van PIXELRIFT in je browser.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;700&family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== MENU (staat op elke pagina) ===== -->
+  <header class="topbalk">
+    <a class="logo" href="index.html"><span class="logo-blok"></span>PIXELRIFT</a>
+    <button id="menu-knop" class="menu-knop" aria-label="Menu openen" aria-expanded="false">☰</button>
+    <nav id="menu" class="menu">
+      <a href="index.html">Home</a>
+      <a href="characters.html">Characters</a>
+      <a href="play.html" class="knop knop-klein">Speel nu ▶</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="sectie spel-layout">
+
+      <!-- ===== HET SPEL ===== -->
+      <div class="spel-kolom">
+        <div class="scorebord">
+          <span>Score: <strong id="score">0</strong></span>
+          <span>Level <strong id="level">1</strong></span>
+          <span id="levens" aria-label="Levens"></span>
+          <button id="geluid-knop" class="geluid-knop" aria-label="Geluid aan of uit">🔊</button>
+        </div>
+
+        <div class="spel-scherm">
+          <!-- Het speelveld: hier tekent js/game.js alles op -->
+          <canvas id="spel" width="480" height="640"></canvas>
+
+          <!-- Startscherm -->
+          <div id="start-scherm" class="spel-overlay">
+            <h1>PIXELRIFT</h1>
+            <p>Je speelt met <strong id="start-character"></strong></p>
+            <button id="start-knop" class="knop">Start ▶</button>
+            <p class="klein">Pijltjes of A/D om te bewegen</p>
+          </div>
+
+          <!-- Game over-scherm -->
+          <div id="game-over" class="spel-overlay" hidden>
+            <h2>GAME OVER</h2>
+            <p class="eind-score">Score: <strong id="eind-score">0</strong></p>
+            <p>Je haalde level <strong id="eind-level">1</strong></p>
+            <button id="opnieuw-knop" class="knop">Opnieuw ▶</button>
+            <a href="characters.html" class="klein">Ander character kiezen</a>
+          </div>
+        </div>
+
+        <!-- Knoppen voor telefoon en tablet -->
+        <div class="touch-knoppen">
+          <button id="knop-links" class="knop touch-knop" aria-label="Naar links">◀</button>
+          <button id="knop-rechts" class="knop touch-knop" aria-label="Naar rechts">▶</button>
+        </div>
+      </div>
+
+      <!-- ===== UITLEG NAAST HET SPEL ===== -->
+      <aside class="spel-uitleg">
+        <div class="kaart">
+          <h3>Zo speel je</h3>
+          <ul>
+            <li><kbd>←</kbd> <kbd>→</kbd> of <kbd>A</kbd> <kbd>D</kbd>: bewegen</li>
+            <li><kbd>Spatie</kbd>: start</li>
+            <li>💎 = punten</li>
+            <li>💎💎💎 achter elkaar = combo, dus meer punten</li>
+            <li>👾 = kost een leven</li>
+            <li>Elke 15 seconden: nieuw level</li>
+            <li>🔊 = geluid aan/uit</li>
+          </ul>
+        </div>
+        <div class="kaart dev-notitie">
+          <h3>Dev-notitie</h3>
+          <p>Te makkelijk? Te moeilijk? Alle instellingen van het spel staan bovenaan in <code>js/game.js</code>. De geluiden staan in <code>js/geluid.js</code>.</p>
+        </div>
+      </aside>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><strong>PIXELRIFT</strong> is een verzonnen game, gemaakt voor de opendag.</p>
+    <p>© 2026 Nightbyte Studio (ook verzonnen)</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/characters.js"></script>
+  <script src="js/geluid.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>

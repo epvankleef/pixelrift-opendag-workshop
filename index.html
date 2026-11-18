@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PIXELRIFT | Nightbyte Studio</title>
+  <meta name="description" content="PIXELRIFT: de nieuwe game van Nightbyte Studio. Spring door de rift!">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <!-- Lettertypes van Google Fonts (zonder internet valt de site terug op een standaardfont) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;700&family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== MENU (staat op elke pagina) ===== -->
+  <header class="topbalk">
+    <a class="logo" href="index.html"><span class="logo-blok"></span>PIXELRIFT</a>
+    <button id="menu-knop" class="menu-knop" aria-label="Menu openen" aria-expanded="false">☰</button>
+    <nav id="menu" class="menu">
+      <a href="index.html" class="actief">Home</a>
+      <a href="characters.html">Characters</a>
+      <a href="play.html" class="knop knop-klein">Speel nu ▶</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO: het grote blok bovenaan ===== -->
+    <section class="hero">
+      <div class="hero-tekst">
+        <p class="label">Nightbyte Studio presenteert</p>
+        <!-- Let op: als je de titel verandert, verander dan ook data-tekst (voor het glitch-effect) -->
+        <h1 class="glitch" data-tekst="PIXELRIFT">PIXELRIFT</h1>
+        <p class="tagline">De wereld scheurt open. Spring door de rift, ontwijk de glitches en verzamel zoveel kristallen als je kunt.</p>
+        <div class="knoppen">
+          <a href="play.html" class="knop">Speel de demo ▶</a>
+          <a href="characters.html" class="knop knop-rand">Kies je character</a>
+        </div>
+      </div>
+
+      <!-- De scheur met losse pixels (alleen decoratie) -->
+      <div class="rift" aria-hidden="true">
+        <div class="rift-scheur"></div>
+        <span class="pixel" style="--x: -60px; --y: 10%; --d: 0s"></span>
+        <span class="pixel" style="--x: 50px; --y: 25%; --d: 1.2s"></span>
+        <span class="pixel" style="--x: -30px; --y: 45%; --d: 0.6s"></span>
+        <span class="pixel" style="--x: 70px; --y: 60%; --d: 2s"></span>
+        <span class="pixel" style="--x: -80px; --y: 75%; --d: 1.6s"></span>
+        <span class="pixel" style="--x: 20px; --y: 88%; --d: 0.3s"></span>
+      </div>
+    </section>
+
+    <!-- ===== COUNTDOWN naar de release ===== -->
+    <section class="sectie countdown-sectie">
+      <h2><span class="nummer">01</span> Release over</h2>
+      <!-- De datum staat bovenaan in js/main.js (RELEASE_DATUM) -->
+      <div id="countdown" class="countdown">
+        <div class="tijd-blok"><span id="dagen">00</span><small>dagen</small></div>
+        <div class="tijd-blok"><span id="uren">00</span><small>uren</small></div>
+        <div class="tijd-blok"><span id="minuten">00</span><small>min</small></div>
+        <div class="tijd-blok"><span id="seconden">00</span><small>sec</small></div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURES: waarom de game vet is ===== -->
+    <section class="sectie">
+      <h2><span class="nummer">02</span> Wat je kunt verwachten</h2>
+      <div class="features">
+        <article class="kaart feature">
+          <div class="feature-icoon">⚡</div>
+          <h3>Snelle runs</h3>
+          <p>Een potje duurt maar een paar minuten. Nog eentje dan. En nog eentje.</p>
+        </article>
+        <article class="kaart feature">
+          <div class="feature-icoon">🦊</div>
+          <h3>Vier characters</h3>
+          <p>Snel, sterk, slim of totaal onvoorspelbaar. Wie past bij jou?</p>
+        </article>
+        <article class="kaart feature">
+          <div class="feature-icoon">💎</div>
+          <h3>Verzamel kristallen</h3>
+          <p>Elk kristal levert punten op. Hoe langer je overleeft, hoe hoger je score.</p>
+        </article>
+        <article class="kaart feature">
+          <div class="feature-icoon">🌀</div>
+          <h3>De rift wordt sneller</h3>
+          <p>Hoe verder je komt, hoe sneller alles op je af komt. Houd jij het vol?</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== HET TEAM ===== -->
+    <section class="sectie">
+      <h2><span class="nummer">03</span> Het team</h2>
+      <div class="team">
+        <article class="kaart teamlid teamlid-jij">
+          <div class="avatar">🧑‍💻</div>
+          <p class="rol">Lead developer</p>
+          <h3>[JOUW NAAM]</h3>
+          <p>Bouwt vandaag mee aan deze website.</p>
+        </article>
+        <article class="kaart teamlid">
+          <div class="avatar">🎨</div>
+          <p class="rol">Art director</p>
+          <h3>Sanne "Pixelvos"</h3>
+          <p>Tekent alles pixel voor pixel. Ja, echt alles.</p>
+        </article>
+        <article class="kaart teamlid">
+          <div class="avatar">🎧</div>
+          <p class="rol">Sound designer</p>
+          <h3>Daan "Bassbyte"</h3>
+          <p>Maakt de beats en de bliepjes.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== WACHTLIJST (stuurt niets op, laat alleen een bericht zien) ===== -->
+    <section class="sectie wachtlijst">
+      <div class="kaart wachtlijst-kaart">
+        <h2><span class="nummer">04</span> Claim je plek in de beta</h2>
+        <p>Vul je gamertag in en zet jezelf op de wachtlijst.</p>
+        <form id="wachtlijst-form" class="wachtlijst-form">
+          <label for="gamertag" class="verborgen">Gamertag</label>
+          <input id="gamertag" type="text" placeholder="Jouw gamertag" maxlength="20" required autocomplete="off">
+          <button type="submit" class="knop">Ik doe mee</button>
+        </form>
+        <p id="wachtlijst-bericht" class="wachtlijst-bericht" aria-live="polite"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p><strong>PIXELRIFT</strong> is een verzonnen game, gemaakt voor de opendag.</p>
+    <p>© 2026 Nightbyte Studio (ook verzonnen)</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
