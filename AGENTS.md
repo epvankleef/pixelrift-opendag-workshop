@@ -28,7 +28,7 @@ Dit bestand is voor jou, de AI-assistent (opencode). Lees het altijd en volg het
 - Waar staat wat?
   - Kleuren en lettertypes: bovenaan `css/style.css` (bij `:root`)
   - Release-datum, menu en wachtlijst: `js/main.js`
-  - Characters: de lijst `CHARACTERS` in `js/characters.js`
+  - Characters: de lijst `CHARACTERS` in `js/characters.js`. Een character met `afbeelding` (zoals Mr. Shades) toont dat plaatje in plaats van de emoji. Zonder `afbeelding` wordt de emoji gebruikt.
   - Game-instellingen: `INSTELLINGEN` bovenaan `js/game.js`
   - Geluiden: `GELUID` en `GELUIDEN` in `js/geluid.js`. Speel een geluid af met `speelGeluid("naam")`.
 - Een **nieuwe pagina**: neem de opbouw van een bestaande pagina over (menu, footer, scripts), gebruik dezelfde stijl en zet een link naar de nieuwe pagina in het menu van **alle** pagina's.

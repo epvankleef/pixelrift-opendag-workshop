@@ -63,7 +63,7 @@ Zet jezelf in het team op de homepage. Daar staat nu nog `[JOUW NAAM]`.
 
 ### 3. Jouw eigen character 🐉
 
-Voeg een vijfde character toe en speel er daarna mee.
+Voeg je eigen character toe en speel er daarna mee.
 
 **Voorbeeldprompt:**
 > Voeg een nieuw character toe aan de lijst CHARACTERS: naam "Blaze", emoji 🐉, rol "Vuurspuwer", kleur oranjerood, kracht 8, snelheid 5, slimheid 6 en een stoere quote.

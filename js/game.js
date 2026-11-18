@@ -31,6 +31,10 @@ const HOOGTE = canvas.height;
 // Het character dat je op de characters-pagina hebt gekozen
 const character = CHARACTERS[gekozenCharacterIndex()];
 
+// Heeft het character een plaatje? Dan tekenen we dat in plaats van de emoji.
+const spelerAfbeelding = new Image();
+if (character.afbeelding) spelerAfbeelding.src = character.afbeelding;
+
 
 // === ALLES WAT HET SPEL MOET ONTHOUDEN ===
 const spel = {
@@ -292,7 +296,17 @@ function teken() {
     ctx.rotate(speler.kanteling);
     ctx.shadowColor = speler.kleur;
     ctx.shadowBlur = 25;
-    tekenEmoji(speler.emoji, 0, 0, speler.grootte);
+    if (spelerAfbeelding.complete && spelerAfbeelding.naturalWidth > 0) {
+      // Plaatje met een rand in de kleur van het character
+      const maat = speler.grootte + 8;
+      ctx.drawImage(spelerAfbeelding, -maat / 2, -maat / 2, maat, maat);
+      ctx.shadowBlur = 0;
+      ctx.strokeStyle = speler.kleur;
+      ctx.lineWidth = 3;
+      ctx.strokeRect(-maat / 2, -maat / 2, maat, maat);
+    } else {
+      tekenEmoji(speler.emoji, 0, 0, speler.grootte);
+    }
     ctx.restore();
   }
 

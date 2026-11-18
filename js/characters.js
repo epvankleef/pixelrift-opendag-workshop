@@ -2,9 +2,22 @@
 // PIXELRIFT: de characters
 // Wil je een nieuw character? Voeg een blok toe aan de lijst
 // hieronder. Stats (kracht, snelheid, slimheid) gaan van 1 tot 10.
+// Een character kan ook een plaatje hebben (afbeelding). Dat wordt dan
+// gebruikt in plaats van de emoji.
 // =========================================================
 
 const CHARACTERS = [
+  {
+    naam: "Mr. Shades",
+    emoji: "🕶️",
+    afbeelding: "img/mr-shades.jpg",
+    rol: "Legende",
+    kleur: "#ffd23f",
+    kracht: 7,
+    snelheid: 8,
+    slimheid: 10,
+    quote: "Mijn zonnebril blijft op. Ook binnen. Ook 's nachts."
+  },
   {
     naam: "Vex",
     emoji: "🦊",
@@ -87,8 +100,11 @@ function maakKaart(character, index, gekozenIndex) {
       </div>`;
   }
 
+  // Plaatje als het er is, anders de emoji
+  const avatar = character.afbeelding ? `<img src="${character.afbeelding}" alt="${naam}">` : emoji;
+
   kaart.innerHTML = `
-    <div class="character-avatar">${emoji}</div>
+    <div class="character-avatar">${avatar}</div>
     <p class="rol">${rol}</p>
     <h3>${naam}</h3>
     <p class="quote">${quote}</p>
