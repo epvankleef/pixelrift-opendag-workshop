@@ -29,15 +29,9 @@ Leerlingen passen met opencode de website aan van **PIXELRIFT**, een verzonnen g
 
 ## Terugzetten tussen twee groepen
 
-**Optie A: met git (aanbevolen).** Doe dit één keer, vóór de eerste groep:
+De map is een git-repo (https://github.com/epvankleef/pixelrift-opendag-workshop, privé). Zet hem op een laptop met `git clone` (je moet dan ingelogd zijn bij GitHub), of kopieer de map gewoon naar de laptop.
 
-```
-git init
-git add -A
-git commit -m "Startversie workshop"
-```
-
-Na elke groep:
+**Optie A: met git (aanbevolen).** Na elke groep, in de terminal van VS Code:
 
 ```
 git restore .
