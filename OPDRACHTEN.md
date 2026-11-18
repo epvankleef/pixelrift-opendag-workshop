@@ -92,6 +92,8 @@ Laat de game je beste score onthouden. Wie haalt de hoogste score: jij of je buu
 
 **💡 Prompttip:** Beschrijf wat de speler moet **zien** en wat er moet **gebeuren**. Benieuwd hoe het werkt? Vraag dan: *"Hoe onthoudt de site mijn highscore?"*
 
+**⏳ Even geduld:** dit is een grotere klus. De AI past meerdere bestanden aan en is er 1 tot 3 minuten mee bezig. Speel ondertussen een potje!
+
 **✅ Gelukt als:** je highscore er na het herladen van de pagina nog steeds staat.
 
 ---

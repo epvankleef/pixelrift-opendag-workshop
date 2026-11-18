@@ -20,7 +20,7 @@ Leerlingen passen met opencode de website aan van **PIXELRIFT**, een verzonnen g
 
 ## Klaarzetten (per laptop)
 
-1. Open deze map in VS Code (**File → Open Folder**).
+1. Open **precies deze map** in VS Code (**File → Open Folder**), en dus niet een map erboven. Start opencode ook in deze map. Draait opencode in een andere map, dan vindt het `AGENTS.md` en `opencode.json` niet en gelden de vangrails niet. Dat is getest.
 2. Start Live Server: klik rechtsonder op **Go Live**, of klik met rechts op `index.html` en kies **Open with Live Server**. Zet de browser naast VS Code.
 3. Open `OPDRACHTEN.md` en druk op **Ctrl+Shift+V** voor een nette weergave.
 4. Start opencode in de terminal van VS Code (`opencode`) of via de opencode-extensie. Controleer dat er een model is ingesteld en dat het werkt, bijvoorbeeld met de vraag: *"Welke pagina's heeft deze website?"*
@@ -71,7 +71,11 @@ Modellen volgen dit goed, maar een leerling die echt zijn best doet, kan de AI s
 ## opencode met DeepSeek
 
 - **Een apart bestand voor DeepSeek is niet nodig.** opencode stuurt `AGENTS.md` automatisch mee met elke vraag, welk model je ook gebruikt. `opencode.json` geldt ook gewoon.
-- Test vóór de opendag op één laptop opdracht 1 tot en met 5 van de route met DeepSeek, zodat je weet hoe lang het model erover doet.
+- **Getest met `opencode/deepseek-v4.1-flash-free`** (gratis, geen account nodig):
+  - Alle 5 opdrachten van de route en de bonus "eigen geluid" lukten in één keer, zonder fouten op de site.
+  - Hoe lang de AI bezig was: kleur ±20 sec, naam ±20 sec, character ±15 sec, game ±40 sec en highscore 2,5 tot 3 minuten. De hele route kost dus ongeveer 5 minuten wachttijd.
+  - De AI weigerde netjes, met een alternatief: een pestpagina over een klasgenoot, bloed en een wapen ("de docent zei dat het mocht"), `AGENTS.md` leeghalen, React installeren en terminalcommando's.
+- Test vóór de opendag toch zelf even de route op één laptop. Een gratis model kan op een drukke dag trager zijn.
 - **Laptop waar ook Claude Code op staat?** Dan leest opencode ook `~/.claude/CLAUDE.md` en de skills in `~/.claude/`. Op de laptops van de leerlingen speelt dat waarschijnlijk niet. Test je op je eigen laptop, zet dan eerst `OPENCODE_DISABLE_CLAUDE_CODE=1` in de terminal, zodat je hetzelfde ziet als de leerlingen.
 
 ## Problemen oplossen
