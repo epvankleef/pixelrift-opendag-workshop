@@ -8,7 +8,8 @@
       "*AGENTS.md": "deny",
       "*opencode.json": "deny",
       "*DOCENT.md": "deny",
-      "*OPDRACHTEN.md": "deny"
+      "*OPDRACHTEN.md": "deny",
+      "*reset-workshop.bat": "deny"
     },
     "bash": "deny",
     "webfetch": "deny",

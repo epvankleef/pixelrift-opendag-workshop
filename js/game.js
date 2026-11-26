@@ -95,7 +95,7 @@ function gameOver() {
   spel.status = "gameover";
   speelGeluid("gameOver");
   document.getElementById("eind-score").textContent = spel.score;
-  document.getElementById("eind-level").textContent = spel.level;
+  document.getElementById("eind-level").textContent = spel.levens;
   document.getElementById("game-over").hidden = false;
 }
 

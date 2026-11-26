@@ -1,0 +1,2 @@
+# Batch-bestanden altijd met Windows-regeleinden, anders kan cmd ze verkeerd lezen
+*.bat text eol=crlf

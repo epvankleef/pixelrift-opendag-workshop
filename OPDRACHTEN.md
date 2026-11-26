@@ -39,176 +39,139 @@ Je hebt **15 minuten**. Volg **de route** hieronder: 5 opdrachten, van de websit
 
 ## 🗺️ De route (15 minuten)
 
-### 1. Jouw kleur 🎨
+Bij elke opdracht staat een voorbeeldprompt (💬). Gebruik hem, of maak je eigen versie.
 
-Geef de website een andere hoofdkleur.
+### 1. Geef de site jouw kleur 🎨
 
-**Voorbeeldprompt:**
-> Verander de hoofdkleur van de website van lime-groen naar oranje.
+> 💬 Verander de hoofdkleur van de website van lime-groen naar oranje.
 
-**💡 Prompttip:** "Maak het mooier" is te vaag. Noem een echte kleur, of een kleurcode zoals `#ff8800`. (De hoofdkleur heet `--kleur-accent` en staat bovenaan in `css/style.css`.)
+💡 Noem een echte kleur, of een kleurcode zoals `#ff8800`.
 
-**✅ Gelukt als:** de titel, de knoppen en de countdown jouw kleur hebben.
+✅ De titel, de knoppen en de countdown hebben jouw kleur.
 
-### 2. Jij bent de lead developer 🧑‍💻
+### 2. Zet jezelf in het team 🧑‍💻
 
-Zet jezelf in het team op de homepage. Daar staat nu nog `[JOUW NAAM]`.
+> 💬 Vervang [JOUW NAAM] op de homepage door "Sam". Verander de tekst eronder in "Bouwde deze site op de opendag".
 
-**Voorbeeldprompt:**
-> Vervang [JOUW NAAM] op de homepage door "Sam". Verander de tekst eronder in "Bouwde deze site op de opendag".
+💡 Zeg **wat** er moet veranderen en **waar** het staat.
 
-**💡 Prompttip:** Zeg **wat** er moet veranderen en **waar** het staat. Dan hoeft de AI niet te zoeken of te gokken.
+✅ Jouw naam staat in het team.
 
-**✅ Gelukt als:** jouw naam in het team staat.
+### 3. Maak je eigen character 🐉
 
-### 3. Jouw eigen character 🐉
+> 💬 Voeg een nieuw character toe aan de lijst CHARACTERS: naam "Blaze", emoji 🐉, rol "Vuurspuwer", kleur oranjerood, kracht 8, snelheid 5, slimheid 6 en een stoere quote.
 
-Voeg je eigen character toe en speel er daarna mee.
+💡 Geef de details die jij belangrijk vindt. De rest mag de AI verzinnen.
 
-**Voorbeeldprompt:**
-> Voeg een nieuw character toe aan de lijst CHARACTERS: naam "Blaze", emoji 🐉, rol "Vuurspuwer", kleur oranjerood, kracht 8, snelheid 5, slimheid 6 en een stoere quote.
-
-**💡 Prompttip:** Geef de details die jij belangrijk vindt. De rest (zoals de quote) mag de AI verzinnen. (De characters staan in `js/characters.js`.)
-
-**✅ Gelukt als:** je nieuwe character op de characters-pagina staat. Klik op **Kies** en open **Speel nu**: je speelt nu met jouw character!
+✅ Je character staat op de characters-pagina. Klik op **Kies** en open **Speel nu**: je speelt met jouw character!
 
 ### 4. Maak de game van jou 🕹️
 
-Verander hoe de game eruitziet en hoe snel hij gaat.
+> 💬 Verander in de game de vijanden in meteorieten ☄️ en de kristallen in sterren ⭐, en maak alles twee keer zo snel.
 
-**Voorbeeldprompt:**
-> Verander in de game de vijanden in meteorieten ☄️ en de kristallen in sterren ⭐, en maak alles twee keer zo snel.
+💡 Kleine aanpassingen aan **hetzelfde onderdeel** mag je in één prompt combineren.
 
-**💡 Prompttip:** Kleine aanpassingen aan **hetzelfde onderdeel** mag je in één prompt combineren. Wil je weten hoe het werkt? Vraag: *"Waar staan de instellingen van de game?"* (Spoiler: bij `INSTELLINGEN` in `js/game.js`.)
+✅ Er vallen sneller meteorieten en sterren uit de lucht.
 
-**✅ Gelukt als:** er sneller meteorieten en sterren uit de lucht vallen.
+### 5. Voeg een highscore toe 🏆
 
-### 5. Highscore 🏆
+> 💬 Voeg een highscore toe aan de game. Laat "Highscore: ..." naast de score zien en onthoud de hoogste score, ook als ik de pagina herlaad.
 
-Laat de game je beste score onthouden. Wie haalt de hoogste score: jij of je buurman of buurvrouw?
+💡 Beschrijf wat de speler moet **zien** en wat er moet **gebeuren**.
 
-**Voorbeeldprompt:**
-> Voeg een highscore toe aan de game. Laat "Highscore: ..." naast de score zien en onthoud de hoogste score, ook als ik de pagina herlaad.
+⏳ Dit is een grotere klus: de AI is er 1 tot 3 minuten mee bezig. Speel ondertussen een potje!
 
-**💡 Prompttip:** Beschrijf wat de speler moet **zien** en wat er moet **gebeuren**. Benieuwd hoe het werkt? Vraag dan: *"Hoe onthoudt de site mijn highscore?"*
-
-**⏳ Even geduld:** dit is een grotere klus. De AI past meerdere bestanden aan en is er 1 tot 3 minuten mee bezig. Speel ondertussen een potje!
-
-**✅ Gelukt als:** je highscore er na het herladen van de pagina nog steeds staat.
+✅ Je highscore staat er na het herladen van de pagina nog steeds.
 
 ---
 
 ## ⚡ Nog tijd over? Bonusopdrachten
 
-Kies wat je leuk vindt. De volgorde maakt niet uit.
+Kies wat je leuk vindt, in elke volgorde.
+
+### Bugjacht 🐛
+
+In de site zitten **3 foutjes** (bugs): één op de homepage, één bij de characters en één in de game. Vind jij ze?
+
+> 💬 Op het game-over-scherm staat "level 0", maar ik was level 2. Kun je dat repareren?
+
+💡 Vertel **wat je ziet** en **wat je had verwacht**. Dan vindt de AI de fout veel sneller.
 
 ### Jouw eigen geluid 🔊
 
-De game heeft al retro 8-bit geluiden. Maak er je eigen geluiden van!
+> 💬 Speel een vrolijk melodietje van 5 tonen als ik game over ga, en maak alle geluiden zachter en ronder.
 
-**Voorbeeldprompt:**
-> Speel een vrolijk melodietje van 5 tonen als ik game over ga, en maak alle geluiden zachter en ronder.
-
-**💡 Prompttip:** Beschrijf hoe het moet **klinken**: hoog of laag, vrolijk of zielig, kort of lang. (De geluiden staan in `js/geluid.js`. Daar zie je ook dat elk geluid gewoon een rijtje tonen is.)
-
-**✅ Gelukt als:** je je nieuwe geluid hoort. (Hoor je niets? Kijk of de 🔊-knop boven de game aan staat.)
+💡 Beschrijf hoe het moet **klinken**: hoog of laag, vrolijk of zielig. Hoor je niets? Zet de 🔊-knop boven de game aan.
 
 ### Power-up ❤️
 
-**Voorbeeldprompt (stap 1):**
-> Laat in de game af en toe een hartje ❤️ naar beneden vallen.
+> 💬 Laat in de game af en toe een hartje ❤️ naar beneden vallen.
 
-**Voorbeeldprompt (stap 2):**
-> Als de speler een hartje pakt, krijgt hij een extra leven. Maximaal 5 levens.
+Daarna:
 
-**💡 Prompttip:** Is een opdracht groot? **Knip hem in stukjes** en kijk na elke stap of het werkt.
+> 💬 Als de speler een hartje pakt, krijgt hij een extra leven. Maximaal 5 levens.
 
-**✅ Gelukt als:** je een extra hartje krijgt als je er een vangt.
+💡 Is een opdracht groot? **Knip hem in stukjes** en test na elke stap.
 
 ### Schudden 📳
 
-**Voorbeeldprompt:**
-> Laat het speelveld kort schudden als ik geraakt word door een vijand.
+> 💬 Laat het speelveld kort schudden als ik geraakt word door een vijand.
 
-**💡 Prompttip:** Beschrijf het **gevoel** dat je wilt ("schudden", "flitsen", "stuiteren"). De AI weet hoe je dat in code maakt.
-
-**✅ Gelukt als:** het scherm schudt als je een leven verliest.
+💡 Beschrijf het **gevoel** ("schudden", "flitsen", "stuiteren"). De AI weet hoe je dat in code maakt.
 
 ### Confetti 🎉
 
-**Voorbeeldprompt:**
-> Als iemand zich aanmeldt voor de wachtlijst, laat dan 3 seconden lang confetti in de kleuren van de site vallen. Gebruik geen externe library.
+> 💬 Als iemand zich aanmeldt voor de wachtlijst, laat dan 3 seconden lang confetti in de kleuren van de site vallen. Gebruik geen externe library.
 
-**💡 Prompttip:** Beschrijf **wanneer** het moet gebeuren en **wat** er dan gebeurt.
-
-**✅ Gelukt als:** er confetti valt nadat je je gamertag hebt ingevuld.
+💡 Zeg **wanneer** het moet gebeuren en **wat** er dan gebeurt.
 
 ### Een betere slogan ✍️
 
-**Voorbeeldprompt:**
-> Bedenk 3 spannende slogans voor de game, van maximaal 15 woorden. Verander nog niets aan de site.
+> 💬 Bedenk 3 spannende slogans voor de game, van maximaal 15 woorden. Verander nog niets aan de site.
 
-En daarna: *"Zet slogan 2 onder de titel op de homepage."*
+Daarna:
 
-**💡 Prompttip:** Laat de AI eerst **opties** geven en kies dan zelf.
+> 💬 Zet slogan 2 onder de titel op de homepage.
 
-**✅ Gelukt als:** jouw favoriete slogan onder PIXELRIFT staat.
+💡 Laat de AI eerst **opties** geven en kies dan zelf.
 
 ### Knoppen met karakter 🕹️
 
-**Voorbeeldprompt:**
-> Laat alle knoppen op de site een beetje wiebelen als je er met je muis overheen gaat.
+> 💬 Laat alle knoppen op de site een beetje wiebelen als je er met je muis overheen gaat.
 
-**💡 Prompttip:** Te veel of te weinig? **Stuur bij** met een vervolgprompt: *"Het wiebelen is te heftig, maak het rustiger."*
-
-**✅ Gelukt als:** de knoppen precies zo bewegen als jij wilt.
+💡 Te veel of te weinig? **Stuur bij**: *"Het wiebelen is te heftig, maak het rustiger."*
 
 ### Veelgestelde vragen ❓
 
-**Voorbeeldprompt:**
-> Voeg op de homepage, boven de wachtlijst, een sectie "Veelgestelde vragen" toe met 4 vragen over de game. Het antwoord verschijnt pas als je op de vraag klikt. Gebruik dezelfde stijl als de rest van de site.
+> 💬 Voeg op de homepage, boven de wachtlijst, een sectie "Veelgestelde vragen" toe met 4 vragen over de game. Het antwoord verschijnt pas als je op de vraag klikt. Gebruik dezelfde stijl als de rest van de site.
 
-**💡 Prompttip:** Zeg **waar** het nieuwe blok moet komen en vraag om **dezelfde stijl**.
-
-**✅ Gelukt als:** je op een vraag klikt en het antwoord openklapt.
+💡 Zeg **waar** het nieuwe blok moet komen en vraag om **dezelfde stijl**.
 
 ### Een nieuwe pagina 🛍️
 
-**Voorbeeldprompt:**
-> Maak een nieuwe pagina shop.html met merch van PIXELRIFT: een hoodie, een pet, een mok en stickers, met verzonnen prijzen. Gebruik dezelfde stijl als characters.html en zet de shop in het menu op alle pagina's.
+> 💬 Maak een nieuwe pagina shop.html met merch van PIXELRIFT: een hoodie, een pet, een mok en stickers, met verzonnen prijzen. Gebruik dezelfde stijl als characters.html en zet de shop in het menu op alle pagina's.
 
-**💡 Prompttip:** Verwijs naar een **bestaand voorbeeld** ("dezelfde stijl als characters.html"). Dan hoeft de AI niet te raden.
-
-**✅ Gelukt als:** je via het menu op elke pagina bij de shop komt.
+💡 Verwijs naar een **bestaand voorbeeld**, dan hoeft de AI niet te raden.
 
 ### Licht en donker 🌗
 
-**Voorbeeldprompt:**
-> Voeg een knop toe aan het menu waarmee je wisselt tussen de donkere stijl en een lichte stijl. Onthoud de keuze als je naar een andere pagina gaat.
+> 💬 Voeg een knop toe aan het menu waarmee je wisselt tussen de donkere stijl en een lichte stijl. Onthoud de keuze als je naar een andere pagina gaat.
 
-**💡 Prompttip:** Denk aan wat er **daarna** moet gebeuren en zeg het erbij. Anders weet de AI het niet.
-
-**✅ Gelukt als:** de site licht wordt en dat ook blijft op de andere pagina's.
+💡 Zeg erbij wat er **daarna** moet gebeuren, anders weet de AI het niet.
 
 ### Nieuwe release-datum 📅
 
-**Voorbeeldprompt:**
-> Zet de release-datum van de game op 1 januari 2027 om 00:00.
+> 💬 Zet de release-datum van de game op 1 januari 2027 om 00:00.
 
-**💡 Prompttip:** Geef de **precieze waarde**: een datum én een tijd. (De datum staat in `js/main.js`, bij `RELEASE_DATUM`.)
-
-**✅ Gelukt als:** de countdown andere getallen laat zien.
+💡 Geef de **precieze waarde**: een datum én een tijd.
 
 ### Bedenk het zelf 🧠
 
 Een baas-vijand, een geheime code, een tweede level: jij bent de game designer!
 
-**Voorbeeldprompt:**
-> Ik wil dat er na 30 seconden een grote baas-vijand verschijnt. Maak eerst een plan in 3 stappen en verander nog niets.
+> 💬 Ik wil dat er na 30 seconden een grote baas-vijand verschijnt. Maak eerst een plan in 3 stappen en verander nog niets.
 
-**💡 Prompttip:** Bij een groot idee laat je de AI eerst een **plan** maken. Daarna zeg je: *"Voer stap 1 uit."*
-
-**✅ Gelukt als:** jij trots bent op het resultaat. 😎
+💡 Bij een groot idee laat je de AI eerst een **plan** maken. Daarna zeg je: *"Voer stap 1 uit."*
 
 ---
 

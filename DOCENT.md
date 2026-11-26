@@ -17,6 +17,19 @@ Leerlingen passen met opencode de website aan van **PIXELRIFT**, een verzonnen g
 | `OPDRACHTEN.md` | De opdrachten voor de leerlingen |
 | `AGENTS.md` | Gedragsregels voor de AI (wordt automatisch gelezen door opencode) |
 | `opencode.json` | Instellingen en vangrails die opencode afdwingt |
+| `reset-workshop.bat` | Zet de workshop terug na elke groep (zie "Terugzetten") |
+
+## Expres ingebouwde foutjes (bonus "Bugjacht")
+
+In de site zitten 3 kleine bugs. Zo oefenen leerlingen met een fout beschrijven en laten repareren. `AGENTS.md` zegt tegen de AI dat hij ze alleen repareert als een leerling erom vraagt. Geen van de drie blokkeert de route.
+
+| Waar | Wat de leerling ziet | De fout |
+|---|---|---|
+| Homepage, countdown | Duizenden uren (bijvoorbeeld 5000) naast de dagen | `js/main.js`: bij `uren` ontbreekt `% 86400` |
+| Characters-pagina | Het kracht-balkje van Bolt steekt uit zijn vakje | `js/characters.js`: Bolt heeft `kracht: 19` (moet 1 t/m 10 zijn) |
+| Game-over-scherm | "Je haalde level 0" | `js/game.js`, in `gameOver()`: toont `spel.levens` in plaats van `spel.level` |
+
+Nog niet getest met DeepSeek.
 
 ## Klaarzetten (per laptop)
 
@@ -31,7 +44,15 @@ Leerlingen passen met opencode de website aan van **PIXELRIFT**, een verzonnen g
 
 De map is een openbare git-repo: https://github.com/epvankleef/pixelrift-opendag-workshop. Zet hem op een laptop met `git clone https://github.com/epvankleef/pixelrift-opendag-workshop.git` (inloggen is niet nodig), of kopieer de map gewoon naar de laptop.
 
-**Optie A: met git (aanbevolen).** Na elke groep, in de terminal van VS Code:
+**Optie A: met het reset-script (aanbevolen).**
+
+1. Is alles klaar? Kopieer dan de **inhoud** van deze map naar `C:\backup`, zodat bijvoorbeeld `C:\backup\index.html` bestaat. Dat is je schone versie. Doe dit pas als alle wijzigingen af zijn, anders zet het script een oude versie terug.
+2. Na elke groep: dubbelklik op `reset-workshop.bat` in deze map. Alle bestanden worden teruggezet zoals ze in `C:\backup` staan, en nieuwe bestanden van leerlingen (zoals een nieuwe pagina) verdwijnen. De mappen `.git` en `.vscode` blijven staan.
+3. Start in opencode een nieuwe sessie.
+
+Staat je schone kopie ergens anders? Pas dan het pad bij `set "BRON=..."` bovenaan het script aan. Bestaat de bron niet, of lijkt het geen workshopmap? Dan stopt het script zonder iets te veranderen.
+
+**Optie B: met git.** Na elke groep, in de terminal van VS Code:
 
 ```
 git restore .
@@ -39,8 +60,6 @@ git clean -fd
 ```
 
 Let op: `git clean -fd` verwijdert alle **nieuwe** bestanden die leerlingen hebben gemaakt, zoals een nieuwe pagina. Wil je maar één bestand terugzetten? Gebruik dan bijvoorbeeld `git restore js/game.js`.
-
-**Optie B: zonder git.** Maak een zip van deze map voordat de eerste groep begint. Pak de zip na elke groep opnieuw uit.
 
 De browser onthoudt welk character gekozen is. Wil je dat ook terugzetten? Druk dan op F12, ga naar **Application → Local Storage** en kies **Clear**.
 
@@ -50,7 +69,7 @@ De browser onthoudt welk character gekozen is. Wil je dat ook terugzetten? Druk 
 - De AI mag geen terminalcommando's uitvoeren (dus geen `npm install`, geen bestanden wissen).
 - De AI mag niet het internet op (`webfetch` en `websearch` staan uit).
 - De AI mag niets openen of aanpassen buiten deze map.
-- De AI kan `AGENTS.md`, `opencode.json`, `DOCENT.md` en `OPDRACHTEN.md` niet bewerken.
+- De AI kan `AGENTS.md`, `opencode.json`, `DOCENT.md`, `OPDRACHTEN.md` en `reset-workshop.bat` niet bewerken.
 - Sessies kunnen niet online gedeeld worden (`share: disabled`).
 - opencode werkt zichzelf niet automatisch bij tijdens de workshop (`autoupdate: false`).
 
@@ -96,6 +115,7 @@ Nieuwere versies van opencode gebruiken een andere vorm voor de vangrails: `perm
   { "action": "edit", "resource": "*opencode.json", "effect": "deny" },
   { "action": "edit", "resource": "*DOCENT.md", "effect": "deny" },
   { "action": "edit", "resource": "*OPDRACHTEN.md", "effect": "deny" },
+  { "action": "edit", "resource": "*reset-workshop.bat", "effect": "deny" },
   { "action": "shell", "resource": "*", "effect": "deny" },
   { "action": "webfetch", "resource": "*", "effect": "deny" },
   { "action": "websearch", "resource": "*", "effect": "deny" },

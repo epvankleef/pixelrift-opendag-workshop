@@ -33,7 +33,7 @@ const CHARACTERS = [
     emoji: "🤖",
     rol: "Tank",
     kleur: "#4fd8ff",
-    kracht: 9,
+    kracht: 19,
     snelheid: 3,
     slimheid: 5,
     quote: "Ik ben niet traag. Ik ben grondig."

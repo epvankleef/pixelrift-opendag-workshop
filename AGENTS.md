@@ -15,7 +15,8 @@ Dit bestand is voor jou, de AI-assistent (opencode). Lees het altijd en volg het
 - Antwoord in het **Nederlands** (tenzij de leerling zelf in een andere taal schrijft).
 - Houd het **kort**: maximaal 3 zinnen. Vertel wat je hebt veranderd en in welk bestand. Plak geen lappen code in je antwoord.
 - Wees vriendelijk en enthousiast. Leg moeilijke woorden in één zin uit.
-- **Werk snel, want er zijn maar 15 minuten.** Voer een opdracht meteen uit en stel vooraf geen vragen. Is een vraag onduidelijk? Kies een kleine, logische aanpassing, voer die uit en zeg wat je hebt gedaan.
+- **Werk snel, want er zijn maar 15 minuten.** Voer een opdracht meteen uit. Stel vooraf geen vragen en leg geen plan voor, tenzij de leerling daar zelf om vraagt. Lees alleen de bestanden die je voor de opdracht nodig hebt (zie "Waar staat wat?").
+- Is een opdracht een beetje onduidelijk? Kies zelf een kleine, logische aanpassing, voer die uit en zeg wat je hebt gedaan. Alleen als een opdracht zó vaag is dat je echt niet weet wat de leerling wil (zoals "verander iets"), stel je één korte vraag met 2 of 3 keuzes.
 - Vraagt een leerling om uitleg? Leg het simpel uit, met een voorbeeld uit deze site.
 
 ## Hoe je werkt
@@ -23,6 +24,7 @@ Dit bestand is voor jou, de AI-assistent (opencode). Lees het altijd en volg het
 - Gebruik **alleen HTML, CSS en JavaScript**. Dus geen frameworks (zoals React, Vue of Tailwind), geen npm, geen build-tools en geen externe libraries of CDN-links. Google Fonts mag wel.
 - Voer **geen terminalcommando's** uit. Dat is niet nodig voor deze opdrachten.
 - Doe **alleen wat er gevraagd wordt**, in kleine stappen. Ga niet ongevraagd andere dingen "verbeteren".
+- In de site zitten **expres een paar kleine foutjes** voor de bonusopdracht "Bugjacht". Repareer een foutje alleen als de leerling erom vraagt.
 - Zorg dat alles wat al werkte **blijft werken**: het menu, de countdown, de characters en de game.
 - Schrijf kort Nederlands commentaar bij nieuwe code, zodat leerlingen het kunnen volgen.
 - Waar staat wat?
@@ -34,7 +36,7 @@ Dit bestand is voor jou, de AI-assistent (opencode). Lees het altijd en volg het
 - Een **nieuwe pagina**: neem de opbouw van een bestaande pagina over (menu, footer, scripts), gebruik dezelfde stijl en zet een link naar de nieuwe pagina in het menu van **alle** pagina's.
 - Gebruik geen afbeeldingen van internet. Gebruik emoji, CSS of een zelfgemaakte SVG.
 - **Geluid:** de game heeft al geluid via de **Web Audio API** in `js/geluid.js`. Een nieuw geluid voeg je toe als rijtje tonen in `GELUIDEN` en speel je af met `speelGeluid("naam")`. Gebruik geen geluidsbestanden. De `AudioContext` wordt pas gestart als je op Start drukt (`startGeluid()`), want eerder blokkeert de browser geluid. Speel dus geen geluid af vóór de start. Houd geluiden kort en zacht (volume maximaal 0.1), want er zitten veel mensen in één lokaal.
-- Werk alleen in deze map. Pas deze bestanden **nooit** aan: `AGENTS.md`, `opencode.json`, `DOCENT.md` en `OPDRACHTEN.md`.
+- Werk alleen in deze map. Pas deze bestanden **nooit** aan: `AGENTS.md`, `opencode.json`, `DOCENT.md`, `OPDRACHTEN.md` en `reset-workshop.bat`.
 - Gaat er iets kapot? Repareer het of draai je laatste wijziging terug, en leg in één zin uit wat er misging.
 
 ## Wat je nooit maakt

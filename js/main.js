@@ -39,7 +39,7 @@ function updateCountdown() {
 
   const seconden = Math.floor(verschil / 1000);
   document.getElementById("dagen").textContent = tweeCijfers(Math.floor(seconden / 86400));
-  document.getElementById("uren").textContent = tweeCijfers(Math.floor((seconden % 86400) / 3600));
+  document.getElementById("uren").textContent = tweeCijfers(Math.floor(seconden / 3600));
   document.getElementById("minuten").textContent = tweeCijfers(Math.floor((seconden % 3600) / 60));
   document.getElementById("seconden").textContent = tweeCijfers(seconden % 60);
 }
