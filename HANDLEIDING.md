@@ -10,8 +10,11 @@ De laptops staan al klaar. Jij loopt rond, helpt waar nodig en zet de laptop na 
 
 1. **Dubbelklik** op **reset-workshop** op het bureaublad. Er komt een zwart venster met een vraag. Typ **J** en druk op **Enter**. Zie je **Klaar!**? Druk dan op een toets.
 2. Ga in VS Code naar **opencode**: het vak waar de leerlingen hun vragen aan de AI typen. Klik erin, typ **`/new`** en druk op **Enter**. De AI begint nu met een lege chat.
+3. Klik in de browser en druk op **Ctrl+Shift+R**. De site laadt nu helemaal opnieuw. Zie je *Cannot GET*? Klik dan in VS Code met **rechts** op `index.html` → **Open with Live Server**.
 
 Klaar! Laat de rest gewoon openstaan.
+
+*Wil je ook het gekozen character en de highscore van de vorige groep wissen? Druk in de browser op **F12**, kies **Application** → **Local Storage** → **Clear**. Dit hoeft niet.*
 
 Zie je een **FOUT** in het zwarte venster, of wil je weten wat het script precies doet? Kijk bij **Zo werkt het reset-script** in het deel voor de organisator.
 
@@ -25,7 +28,7 @@ Zie je een **FOUT** in het zwarte venster, of wil je weten wat het script precie
 | De opdrachten zien er rommelig uit | Klik op `OPDRACHTEN.md` en druk op **Ctrl+Shift+V** |
 | Waar is de game? | Klik op de site rechtsboven op **Speel nu ▶** |
 | De site is kapot | Laat de leerling in opencode typen: *Draai je laatste wijziging terug.* |
-| Nog steeds kapot | Doe de 2 stappen van **Na elke groep** |
+| Nog steeds kapot | Doe de 3 stappen van **Na elke groep** |
 | De AI is lang bezig | Normaal. Meestal ±20 seconden, de highscore 2 à 3 minuten |
 | De AI zegt dat iets niet mag | Dat is de beveiliging. Laat de leerling iets anders bedenken |
 | Te veel geluid | Klik op de 🔊-knop boven de game |
@@ -76,7 +79,7 @@ Er zitten expres 3 foutjes in de site. Geef gerust een hint:
 | 2 | Er staat: *Alles in C:\opendag wordt teruggezet. Het werk van de leerlingen gaat verloren. Weet je het zeker?* |
 | 3 | Typ **J** (of **ja**) en druk op **Enter**: het script zet alles terug. Typ je **N** of **nee**, of druk je alleen op **Enter**? Dan stopt het script met *Gestopt. Er is niets veranderd.* |
 | 4 | Je ziet *Klaar! De workshop staat schoon klaar in C:\opendag.* Druk op een toets om het venster te sluiten. |
-| 5 | Typ daarna altijd **`/new`** in het opencode-vak. |
+| 5 | Typ daarna altijd **`/new`** in het opencode-vak en druk in de browser op **Ctrl+Shift+R**. |
 
 **De eerste keer** maakt het script de map `C:\opendag` aan en zet het twee snelkoppelingen op het bureaublad: **reset-workshop** (het script) en **opendag** (die opent de map waarin de leerlingen werken). Staat een snelkoppeling er al, dan laat het script hem staan. Gooi je er een weg, dan zet het script hem de volgende keer opnieuw neer.
 
