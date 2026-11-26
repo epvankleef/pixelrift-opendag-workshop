@@ -40,7 +40,7 @@ Nog niet getest met DeepSeek.
    cd C:\baseline
    git clone https://github.com/epvankleef/pixelrift-opendag-workshop.git
    ```
-   Dubbelklik daarna op `C:\baseline\pixelrift-opendag-workshop\reset-workshop.bat`. Het script maakt de workshopmap `C:\opendag`. Daarin werken de leerlingen. De baseline blijft altijd schoon.
+   Dubbelklik daarna op `C:\baseline\pixelrift-opendag-workshop\reset-workshop.bat`. Het script maakt de workshopmap `C:\opendag` en zet een snelkoppeling **reset-workshop** op het bureaublad. In `C:\opendag` werken de leerlingen. De baseline blijft altijd schoon.
 2. Open **precies `C:\opendag`** in VS Code (**File → Open Folder**), en dus niet een map erboven. Start opencode ook in deze map. Draait opencode in een andere map, dan vindt het `AGENTS.md` en `opencode.json` niet en gelden de vangrails niet. Dat is getest.
 3. Start Live Server: klik rechtsonder op **Go Live**, of klik met rechts op `index.html` en kies **Open with Live Server**. Zet de browser naast VS Code.
 4. Open `OPDRACHTEN.md` en druk op **Ctrl+Shift+V** voor een nette weergave.
@@ -50,11 +50,11 @@ Nog niet getest met DeepSeek.
 
 ## Terugzetten tussen twee groepen
 
-Na elke groep dubbelklik je op `C:\baseline\pixelrift-opendag-workshop\reset-workshop.bat` (handig: zet er een snelkoppeling van op het bureaublad). Het script maakt `C:\opendag` weer precies gelijk aan de baseline: aangepaste bestanden komen terug en nieuwe bestanden van leerlingen (zoals een nieuwe pagina) verdwijnen. Alleen de map `.vscode` blijft staan. Start daarna in opencode een nieuwe sessie.
+Na elke groep dubbelklik je op de snelkoppeling **reset-workshop** op het bureaublad. Het script maakt `C:\opendag` weer precies gelijk aan de baseline: aangepaste en weggegooide bestanden komen terug en nieuwe bestanden van leerlingen (zoals een nieuwe pagina) verdwijnen. Het script zelf wordt niet naar `C:\opendag` gekopieerd en de map `.vscode` blijft staan. Typ daarna `/new` in opencode.
 
 - **Nieuwe versie op GitHub?** Typ `git pull` in `C:\baseline\pixelrift-opendag-workshop` en draai daarna het script.
 - **Een andere workshopmap?** Pas `set "DOEL=..."` bovenaan het script aan. Het script kopieert altijd de map waar het zelf in staat.
-- **Veiligheid:** bestaat de workshopmap al, maar zit er geen `index.html` in? Dan stopt het script zonder iets te veranderen. Start je het script per ongeluk vanuit `C:\opendag`, dan stopt het ook.
+- **Let op:** alles in de workshopmap wordt gelijk gemaakt aan de baseline. Zet `DOEL` dus nooit op een map met andere bestanden.
 
 **Zonder script, met git.** `C:\opendag` is ook een git-repo. Je kunt dus ook na elke groep in de terminal van VS Code typen:
 
