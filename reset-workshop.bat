@@ -6,13 +6,18 @@ rem Nieuwe bestanden van leerlingen (zoals shop.html) worden verwijderd.
 rem De mappen .git en .vscode en dit script zelf blijven staan.
 rem =========================================================
 
-rem De schone kopie van de workshopmap. Staat die ergens anders? Pas dit pad aan.
-set "BRON=C:\backup"
+rem De map met de schone kopie. Staat die ergens anders? Pas dit pad aan.
+set "BACKUP=C:\backup"
 
 rem De map waar dit script staat (zonder \ aan het eind)
 set "DOEL=%~dp0"
 set "DOEL=%DOEL:~0,-1%"
-if "%BRON:~-1%"=="\" set "BRON=%BRON:~0,-1%"
+if "%BACKUP:~-1%"=="\" set "BACKUP=%BACKUP:~0,-1%"
+
+rem De schone kopie staat in een submap met dezelfde naam als deze map,
+rem bijvoorbeeld C:\backup\pixelrift-opendag-workshop
+for %%I in ("%DOEL%") do set "MAPNAAM=%%~nxI"
+set "BRON=%BACKUP%\%MAPNAAM%"
 
 rem === Veiligheidschecks: klopt de bron? ===
 if not exist "%BRON%\" goto :geenbron

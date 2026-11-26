@@ -46,11 +46,11 @@ De map is een openbare git-repo: https://github.com/epvankleef/pixelrift-opendag
 
 **Optie A: met het reset-script (aanbevolen).**
 
-1. Is alles klaar? Kopieer dan de **inhoud** van deze map naar `C:\backup`, zodat bijvoorbeeld `C:\backup\index.html` bestaat. Dat is je schone versie. Doe dit pas als alle wijzigingen af zijn, anders zet het script een oude versie terug.
-2. Na elke groep: dubbelklik op `reset-workshop.bat` in deze map. Alle bestanden worden teruggezet zoals ze in `C:\backup` staan, en nieuwe bestanden van leerlingen (zoals een nieuwe pagina) verdwijnen. De mappen `.git` en `.vscode` blijven staan.
+1. Is alles klaar? Kopieer dan deze hele map naar `C:\backup`. De naam moet hetzelfde blijven: heet de workshopmap `pixelrift-opendag-workshop`, dan wordt de schone kopie `C:\backup\pixelrift-opendag-workshop`. Doe dit pas als alle wijzigingen af zijn, anders zet het script een oude versie terug.
+2. Na elke groep: dubbelklik op `reset-workshop.bat` in de workshopmap. Alle bestanden worden teruggezet zoals ze in de schone kopie staan, en nieuwe bestanden van leerlingen (zoals een nieuwe pagina) verdwijnen. De mappen `.git` en `.vscode` blijven staan.
 3. Start in opencode een nieuwe sessie.
 
-Staat je schone kopie ergens anders? Pas dan het pad bij `set "BRON=..."` bovenaan het script aan. Bestaat de bron niet, of lijkt het geen workshopmap? Dan stopt het script zonder iets te veranderen.
+Staat je schone kopie niet in `C:\backup`? Pas dan het pad bij `set "BACKUP=..."` bovenaan het script aan. Vindt het script geen schone kopie met dezelfde naam, of lijkt het geen workshopmap? Dan stopt het zonder iets te veranderen.
 
 **Optie B: met git.** Na elke groep, in de terminal van VS Code:
 
