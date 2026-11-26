@@ -8,7 +8,7 @@ Je werkt samen met een **AI-assistent** (opencode). Jij bedenkt wat er moet gebe
 
 ## 🚀 Zo werkt het
 
-1. De website staat open in je browser. Zie je hem niet? Klik dan rechtsonder in VS Code op **Go Live**.
+1. De website staat open in je browser. Zie je hem niet? Klik in VS Code links met rechts op **index.html** en kies **Open with Live Server**. De game speel je via **Speel nu ▶** rechtsboven op de site.
 2. Typ in **opencode** wat je wilt veranderen (dat heet een *prompt*) en druk op **Enter**.
 3. Kijk in je browser. Je aanpassing verschijnt vanzelf. ✨
 

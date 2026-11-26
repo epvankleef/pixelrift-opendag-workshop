@@ -2,12 +2,14 @@
   "$schema": "https://opencode.ai/config.json",
   "share": "disabled",
   "autoupdate": false,
+  "model": "opencode/deepseek-v4.1-flash-free",
   "permission": {
     "edit": {
       "*": "allow",
       "*AGENTS.md": "deny",
       "*opencode.json": "deny",
       "*DOCENT.md": "deny",
+      "*BEGELEIDERS.md": "deny",
       "*OPDRACHTEN.md": "deny",
       "*reset-workshop.bat": "deny"
     },

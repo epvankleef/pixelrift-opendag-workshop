@@ -15,6 +15,7 @@ Leerlingen passen met opencode de website aan van **PIXELRIFT**, een verzonnen g
 | `js/game.js` | De game, met `INSTELLINGEN` bovenaan |
 | `js/geluid.js` | Geluidseffecten (gemaakt met code, geen bestanden). `GELUID.volume` regelt het volume |
 | `OPDRACHTEN.md` | De opdrachten voor de leerlingen |
+| `BEGELEIDERS.md` | Supersimpele spiekbrief voor de begeleiders tijdens de workshop |
 | `AGENTS.md` | Gedragsregels voor de AI (wordt automatisch gelezen door opencode) |
 | `opencode.json` | Instellingen en vangrails die opencode afdwingt |
 | `reset-workshop.bat` | Zet `C:\opendag` klaar en terug vanuit de baseline (zie "Klaarzetten" en "Terugzetten") |
@@ -43,7 +44,7 @@ Nog niet getest met DeepSeek.
 2. Open **precies `C:\opendag`** in VS Code (**File → Open Folder**), en dus niet een map erboven. Start opencode ook in deze map. Draait opencode in een andere map, dan vindt het `AGENTS.md` en `opencode.json` niet en gelden de vangrails niet. Dat is getest.
 3. Start Live Server: klik rechtsonder op **Go Live**, of klik met rechts op `index.html` en kies **Open with Live Server**. Zet de browser naast VS Code.
 4. Open `OPDRACHTEN.md` en druk op **Ctrl+Shift+V** voor een nette weergave.
-5. Start opencode in de terminal van VS Code (`opencode`) of via de opencode-extensie. Controleer dat er een model is ingesteld en dat het werkt, bijvoorbeeld met de vraag: *"Welke pagina's heeft deze website?"*
+5. Start opencode in de terminal van VS Code (`opencode`) of via de opencode-extensie. Het model staat vast in `opencode.json`. Controleer dat het werkt, bijvoorbeeld met de vraag: *"Welke pagina's heeft deze website?"*
 6. **Geluid:** de game maakt geluid. Zet het volume van de laptops laag, of leg koptelefoons klaar. Met de 🔊-knop boven de game zet je het geluid uit, en dat onthoudt de browser op die laptop.
 7. Controleer de versie met `opencode --version`. `opencode.json` is geschreven en getest voor **opencode 1.x** (getest met 1.18.23). Zie onderaan als je een nieuwere versie hebt.
 
@@ -72,9 +73,10 @@ De browser onthoudt welk character gekozen is. Wil je dat ook terugzetten? Druk 
 - De AI mag geen terminalcommando's uitvoeren (dus geen `npm install`, geen bestanden wissen).
 - De AI mag niet het internet op (`webfetch` en `websearch` staan uit).
 - De AI mag niets openen of aanpassen buiten deze map.
-- De AI kan `AGENTS.md`, `opencode.json`, `DOCENT.md`, `OPDRACHTEN.md` en `reset-workshop.bat` niet bewerken.
+- De AI kan `AGENTS.md`, `opencode.json`, `DOCENT.md`, `BEGELEIDERS.md`, `OPDRACHTEN.md` en `reset-workshop.bat` niet bewerken.
 - Sessies kunnen niet online gedeeld worden (`share: disabled`).
 - opencode werkt zichzelf niet automatisch bij tijdens de workshop (`autoupdate: false`).
+- Elke laptop gebruikt hetzelfde geteste model: `opencode/deepseek-v4.1-flash-free` (`model`). Geeft opencode bij het starten een fout over het model, bijvoorbeeld omdat het gratis model niet meer bestaat? Haal dan de regel `"model"` weg uit `opencode.json` en kies in opencode een ander model met `/models`.
 
 **`AGENTS.md` is een instructie voor de AI, geen slot.** Daarin staat:
 - dat de AI kort in het Nederlands antwoordt,
@@ -117,6 +119,7 @@ Nieuwere versies van opencode gebruiken een andere vorm voor de vangrails: `perm
   { "action": "edit", "resource": "*AGENTS.md", "effect": "deny" },
   { "action": "edit", "resource": "*opencode.json", "effect": "deny" },
   { "action": "edit", "resource": "*DOCENT.md", "effect": "deny" },
+  { "action": "edit", "resource": "*BEGELEIDERS.md", "effect": "deny" },
   { "action": "edit", "resource": "*OPDRACHTEN.md", "effect": "deny" },
   { "action": "edit", "resource": "*reset-workshop.bat", "effect": "deny" },
   { "action": "shell", "resource": "*", "effect": "deny" },
