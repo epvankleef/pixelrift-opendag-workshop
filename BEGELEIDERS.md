@@ -6,7 +6,7 @@ De laptops staan al klaar. Jij loopt rond, helpt waar nodig en zet de laptop na 
 
 ## 🔄 Na elke groep
 
-1. **Dubbelklik** op **reset-workshop** op het bureaublad. Zie je **Klaar!**? Druk dan op een toets.
+1. **Dubbelklik** op **reset-workshop** op het bureaublad. Er komt een zwart venster met een vraag. Typ **J** en druk op **Enter**. Zie je **Klaar!**? Druk dan op een toets.
 2. Ga in VS Code naar **opencode**: het vak waar de leerlingen hun vragen aan de AI typen. Klik erin, typ **`/new`** en druk op **Enter**. De AI begint nu met een lege chat.
 
 Klaar! Laat de rest gewoon openstaan.

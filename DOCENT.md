@@ -50,7 +50,7 @@ Nog niet getest met DeepSeek.
 
 ## Terugzetten tussen twee groepen
 
-Na elke groep dubbelklik je op de snelkoppeling **reset-workshop** op het bureaublad. Het script maakt `C:\opendag` weer precies gelijk aan de baseline: aangepaste en weggegooide bestanden komen terug en nieuwe bestanden van leerlingen (zoals een nieuwe pagina) verdwijnen. Het script zelf wordt niet naar `C:\opendag` gekopieerd en de map `.vscode` blijft staan. Typ daarna `/new` in opencode.
+Na elke groep dubbelklik je op de snelkoppeling **reset-workshop** op het bureaublad. Het script vraagt eerst of je het zeker weet: typ **J** en druk op **Enter** (met **N** stop je zonder iets te veranderen). Daarna maakt het script `C:\opendag` weer precies gelijk aan de baseline: aangepaste en weggegooide bestanden komen terug en nieuwe bestanden van leerlingen (zoals een nieuwe pagina) verdwijnen. Het script zelf wordt niet naar `C:\opendag` gekopieerd en de map `.vscode` blijft staan. Typ daarna `/new` in opencode.
 
 - **Nieuwe versie op GitHub?** Typ `git pull` in `C:\baseline\pixelrift-opendag-workshop` en draai daarna het script.
 - **Een andere workshopmap?** Pas `set "DOEL=..."` bovenaan het script aan. Het script kopieert altijd de map waar het zelf in staat.

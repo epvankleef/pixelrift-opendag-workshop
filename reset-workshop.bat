@@ -24,7 +24,15 @@ if not exist "%BRON%\index.html" goto :geenworkshop
 if not exist "%BRON%\js\game.js" goto :geenworkshop
 if /i "%BRON%"=="%DOEL%" goto :zelfdemap
 
-rem === Kopieren ===
+rem === Eerst even vragen of het echt de bedoeling is ===
+echo Alles in %DOEL% wordt teruggezet. Het werk van de leerlingen gaat verloren.
+set "ANTWOORD="
+set /p "ANTWOORD=Weet je het zeker? Typ J voor ja of N voor nee en druk op Enter: "
+if /i "%ANTWOORD%"=="J" goto :kopieren
+if /i "%ANTWOORD%"=="JA" goto :kopieren
+goto :geannuleerd
+
+:kopieren
 echo Workshop klaarzetten in %DOEL% ...
 robocopy "%BRON%" "%DOEL%" /MIR /XD .vscode /XF reset-workshop.bat /R:1 /W:1 /NFL /NDL /NJH /NJS /NP >nul
 rem Robocopy: 0 t/m 7 = gelukt, 8 of hoger = fout
@@ -48,6 +56,10 @@ goto :stop
 :zelfdemap
 echo FOUT: de baseline en de workshopmap zijn dezelfde map. Er is niets veranderd.
 echo Draai het script vanuit C:\baseline\pixelrift-opendag-workshop
+goto :stop
+
+:geannuleerd
+echo Gestopt. Er is niets veranderd.
 goto :stop
 
 :mislukt
