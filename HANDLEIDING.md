@@ -55,12 +55,7 @@ Er zitten expres 3 foutjes in de site. Geef gerust een hint:
 
 ### Klaarzetten (per laptop)
 
-1. **Baseline en workshopmap.** Zet de repo als schone baseline in `C:\baseline` (inloggen is niet nodig):
-   ```
-   mkdir C:\baseline
-   cd C:\baseline
-   git clone https://github.com/epvankleef/pixelrift-opendag-workshop.git
-   ```
+1. **Baseline controleren.** Kijk of de map `C:\baseline\pixelrift-opendag-workshop` bestaat. Die is al voor je klaargezet. Staat hij er niet? Vraag dan de organisator.
    Dubbelklik daarna op `C:\baseline\pixelrift-opendag-workshop\reset-workshop.bat` en typ **J**. Het script maakt de workshopmap `C:\opendag` en zet de snelkoppelingen **reset-workshop** en **opendag** op het bureaublad.
 2. Open **precies `C:\opendag`** in VS Code (**File → Open Folder**), en dus niet een map erboven. Start opencode ook in deze map, anders gelden de regels voor de AI niet. Dat is getest.
 3. Klik met rechts op `index.html` en kies **Open with Live Server**. Zet de browser naast VS Code.
@@ -91,7 +86,7 @@ Er zitten expres 3 foutjes in de site. Geef gerust een hint:
 
 | Melding | Wat betekent het? | Wat doe je? |
 |---|---|---|
-| *FOUT: … lijkt geen workshopmap: index.html of js\game.js ontbreekt.* | Het script staat niet in de baseline, of de baseline is niet compleet. Er is niets veranderd. | Start het script via de snelkoppeling of vanuit `C:\baseline\pixelrift-opendag-workshop`. Is de baseline kapot? Clone hem opnieuw (zie **Klaarzetten**). |
+| *FOUT: … lijkt geen workshopmap: index.html of js\game.js ontbreekt.* | Het script staat niet in de baseline, of de baseline is niet compleet. Er is niets veranderd. | Start het script via de snelkoppeling of vanuit `C:\baseline\pixelrift-opendag-workshop`. Is de baseline kapot? Vraag dan de organisator. |
 | *FOUT: de baseline en de workshopmap zijn dezelfde map.* | Het script is gestart vanuit `C:\opendag`, of `DOEL` staat verkeerd. Er is niets veranderd. | Start het script via de snelkoppeling of vanuit `C:\baseline\pixelrift-opendag-workshop`. |
 | *FOUT: het kopieren is niet helemaal gelukt.* | Een bestand kon niet worden overschreven, bijvoorbeeld omdat het nog open staat. | Sluit open bestanden en probeer het opnieuw. |
 
