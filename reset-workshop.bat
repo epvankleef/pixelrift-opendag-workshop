@@ -6,8 +6,9 @@ rem C:\baseline\pixelrift-opendag-workshop\reset-workshop.bat
 rem Het kopieert die map naar de workshopmap (DOEL).
 rem Aangepaste bestanden komen terug, weggegooide bestanden ook, en
 rem nieuwe bestanden van leerlingen (zoals shop.html) worden verwijderd.
-rem Dit script zelf en de map .vscode worden niet gekopieerd.
-rem De eerste keer zet het script een snelkoppeling op het bureaublad.
+rem Dit script zelf, HANDLEIDING.md en de map .vscode worden niet gekopieerd.
+rem De eerste keer zet het script twee snelkoppelingen op het bureaublad:
+rem reset-workshop (dit script) en opendag (de workshopmap).
 rem =========================================================
 
 rem De map waarin de leerlingen werken. Wil je een andere map? Pas dit pad aan.
@@ -34,14 +35,18 @@ goto :geannuleerd
 
 :kopieren
 echo Workshop klaarzetten in %DOEL% ...
-robocopy "%BRON%" "%DOEL%" /MIR /XD .vscode /XF reset-workshop.bat /R:1 /W:1 /NFL /NDL /NJH /NJS /NP >nul
+robocopy "%BRON%" "%DOEL%" /MIR /XD .vscode /XF reset-workshop.bat HANDLEIDING.md /R:1 /W:1 /NFL /NDL /NJH /NJS /NP >nul
 rem Robocopy: 0 t/m 7 = gelukt, 8 of hoger = fout
 if %ERRORLEVEL% GEQ 8 goto :mislukt
-rem Een oude kopie van dit script hoort niet in de workshopmap
+rem Oude kopieen van dit script en van de handleidingen horen niet in de workshopmap
 if exist "%DOEL%\reset-workshop.bat" del /f /q "%DOEL%\reset-workshop.bat"
+if exist "%DOEL%\HANDLEIDING.md" del /f /q "%DOEL%\HANDLEIDING.md"
+if exist "%DOEL%\DOCENT.md" del /f /q "%DOEL%\DOCENT.md"
+if exist "%DOEL%\BEGELEIDERS.md" del /f /q "%DOEL%\BEGELEIDERS.md"
 
-rem === Snelkoppeling op het bureaublad (alleen als die er nog niet is) ===
-powershell -NoProfile -Command "$p = Join-Path ([Environment]::GetFolderPath('Desktop')) 'reset-workshop.lnk'; if (-not (Test-Path $p)) { $s = (New-Object -ComObject WScript.Shell).CreateShortcut($p); $s.TargetPath = '%~f0'; $s.WorkingDirectory = '%BRON%'; $s.Save(); Write-Host 'Er staat nu een snelkoppeling reset-workshop op het bureaublad.' }"
+rem === Snelkoppelingen op het bureaublad (alleen als ze er nog niet zijn) ===
+rem reset-workshop wijst naar dit script, opendag naar de workshopmap.
+powershell -NoProfile -Command "$d = [Environment]::GetFolderPath('Desktop'); $w = New-Object -ComObject WScript.Shell; $p = Join-Path $d 'reset-workshop.lnk'; if (-not (Test-Path $p)) { $s = $w.CreateShortcut($p); $s.TargetPath = '%~f0'; $s.WorkingDirectory = '%BRON%'; $s.Save(); Write-Host 'Er staat nu een snelkoppeling reset-workshop op het bureaublad.' }; $p = Join-Path $d 'opendag.lnk'; if (-not (Test-Path $p)) { $s = $w.CreateShortcut($p); $s.TargetPath = '%DOEL%'; $s.Save(); Write-Host 'Er staat nu een snelkoppeling opendag op het bureaublad.' }"
 
 echo.
 echo Klaar! De workshop staat schoon klaar in %DOEL%.

@@ -36,7 +36,7 @@ Dit bestand is voor jou, de AI-assistent (opencode). Lees het altijd en volg het
 - Een **nieuwe pagina**: neem de opbouw van een bestaande pagina over (menu, footer, scripts), gebruik dezelfde stijl en zet een link naar de nieuwe pagina in het menu van **alle** pagina's.
 - Gebruik geen afbeeldingen van internet. Gebruik emoji, CSS of een zelfgemaakte SVG.
 - **Geluid:** de game heeft al geluid via de **Web Audio API** in `js/geluid.js`. Een nieuw geluid voeg je toe als rijtje tonen in `GELUIDEN` en speel je af met `speelGeluid("naam")`. Gebruik geen geluidsbestanden. De `AudioContext` wordt pas gestart als je op Start drukt (`startGeluid()`), want eerder blokkeert de browser geluid. Speel dus geen geluid af vóór de start. Houd geluiden kort en zacht (volume maximaal 0.1), want er zitten veel mensen in één lokaal.
-- Werk alleen in deze map. Pas deze bestanden **nooit** aan: `AGENTS.md`, `opencode.json`, `DOCENT.md`, `BEGELEIDERS.md`, `OPDRACHTEN.md` en `reset-workshop.bat`.
+- Werk alleen in deze map. Pas deze bestanden **nooit** aan: `AGENTS.md`, `opencode.json`, `HANDLEIDING.md`, `OPDRACHTEN.md` en `reset-workshop.bat`.
 - Gaat er iets kapot? Repareer het of draai je laatste wijziging terug, en leg in één zin uit wat er misging.
 
 ## Wat je nooit maakt

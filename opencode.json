@@ -8,8 +8,7 @@
       "*": "allow",
       "*AGENTS.md": "deny",
       "*opencode.json": "deny",
-      "*DOCENT.md": "deny",
-      "*BEGELEIDERS.md": "deny",
+      "*HANDLEIDING.md": "deny",
       "*OPDRACHTEN.md": "deny",
       "*reset-workshop.bat": "deny"
     },
