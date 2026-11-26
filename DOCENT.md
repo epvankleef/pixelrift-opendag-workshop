@@ -17,7 +17,7 @@ Leerlingen passen met opencode de website aan van **PIXELRIFT**, een verzonnen g
 | `OPDRACHTEN.md` | De opdrachten voor de leerlingen |
 | `AGENTS.md` | Gedragsregels voor de AI (wordt automatisch gelezen door opencode) |
 | `opencode.json` | Instellingen en vangrails die opencode afdwingt |
-| `reset-workshop.bat` | Zet de workshop terug na elke groep (zie "Terugzetten") |
+| `reset-workshop.bat` | Zet `C:\opendag` klaar en terug vanuit de baseline (zie "Klaarzetten" en "Terugzetten") |
 
 ## Expres ingebouwde foutjes (bonus "Bugjacht")
 
@@ -33,26 +33,29 @@ Nog niet getest met DeepSeek.
 
 ## Klaarzetten (per laptop)
 
-1. Open **precies deze map** in VS Code (**File → Open Folder**), en dus niet een map erboven. Start opencode ook in deze map. Draait opencode in een andere map, dan vindt het `AGENTS.md` en `opencode.json` niet en gelden de vangrails niet. Dat is getest.
-2. Start Live Server: klik rechtsonder op **Go Live**, of klik met rechts op `index.html` en kies **Open with Live Server**. Zet de browser naast VS Code.
-3. Open `OPDRACHTEN.md` en druk op **Ctrl+Shift+V** voor een nette weergave.
-4. Start opencode in de terminal van VS Code (`opencode`) of via de opencode-extensie. Controleer dat er een model is ingesteld en dat het werkt, bijvoorbeeld met de vraag: *"Welke pagina's heeft deze website?"*
-5. **Geluid:** de game maakt geluid. Zet het volume van de laptops laag, of leg koptelefoons klaar. Met de 🔊-knop boven de game zet je het geluid uit, en dat onthoudt de browser op die laptop.
-6. Controleer de versie met `opencode --version`. `opencode.json` is geschreven en getest voor **opencode 1.x** (getest met 1.18.23). Zie onderaan als je een nieuwere versie hebt.
+1. **Baseline en workshopmap.** Zet de repo als schone baseline in `C:\baseline` (inloggen is niet nodig):
+   ```
+   mkdir C:\baseline
+   cd C:\baseline
+   git clone https://github.com/epvankleef/pixelrift-opendag-workshop.git
+   ```
+   Dubbelklik daarna op `C:\baseline\pixelrift-opendag-workshop\reset-workshop.bat`. Het script maakt de workshopmap `C:\opendag`. Daarin werken de leerlingen. De baseline blijft altijd schoon.
+2. Open **precies `C:\opendag`** in VS Code (**File → Open Folder**), en dus niet een map erboven. Start opencode ook in deze map. Draait opencode in een andere map, dan vindt het `AGENTS.md` en `opencode.json` niet en gelden de vangrails niet. Dat is getest.
+3. Start Live Server: klik rechtsonder op **Go Live**, of klik met rechts op `index.html` en kies **Open with Live Server**. Zet de browser naast VS Code.
+4. Open `OPDRACHTEN.md` en druk op **Ctrl+Shift+V** voor een nette weergave.
+5. Start opencode in de terminal van VS Code (`opencode`) of via de opencode-extensie. Controleer dat er een model is ingesteld en dat het werkt, bijvoorbeeld met de vraag: *"Welke pagina's heeft deze website?"*
+6. **Geluid:** de game maakt geluid. Zet het volume van de laptops laag, of leg koptelefoons klaar. Met de 🔊-knop boven de game zet je het geluid uit, en dat onthoudt de browser op die laptop.
+7. Controleer de versie met `opencode --version`. `opencode.json` is geschreven en getest voor **opencode 1.x** (getest met 1.18.23). Zie onderaan als je een nieuwere versie hebt.
 
 ## Terugzetten tussen twee groepen
 
-De map is een openbare git-repo: https://github.com/epvankleef/pixelrift-opendag-workshop. Zet hem op een laptop met `git clone https://github.com/epvankleef/pixelrift-opendag-workshop.git` (inloggen is niet nodig), of kopieer de map gewoon naar de laptop.
+Na elke groep dubbelklik je op `C:\baseline\pixelrift-opendag-workshop\reset-workshop.bat` (handig: zet er een snelkoppeling van op het bureaublad). Het script maakt `C:\opendag` weer precies gelijk aan de baseline: aangepaste bestanden komen terug en nieuwe bestanden van leerlingen (zoals een nieuwe pagina) verdwijnen. Alleen de map `.vscode` blijft staan. Start daarna in opencode een nieuwe sessie.
 
-**Optie A: met het reset-script (aanbevolen).**
+- **Nieuwe versie op GitHub?** Typ `git pull` in `C:\baseline\pixelrift-opendag-workshop` en draai daarna het script.
+- **Een andere workshopmap?** Pas `set "DOEL=..."` bovenaan het script aan. Het script kopieert altijd de map waar het zelf in staat.
+- **Veiligheid:** bestaat de workshopmap al, maar zit er geen `index.html` in? Dan stopt het script zonder iets te veranderen. Start je het script per ongeluk vanuit `C:\opendag`, dan stopt het ook.
 
-1. Is alles klaar? Kopieer dan deze hele map naar `C:\backup`. De naam moet hetzelfde blijven: heet de workshopmap `pixelrift-opendag-workshop`, dan wordt de schone kopie `C:\backup\pixelrift-opendag-workshop`. Doe dit pas als alle wijzigingen af zijn, anders zet het script een oude versie terug.
-2. Na elke groep: dubbelklik op `reset-workshop.bat` in de workshopmap. Alle bestanden worden teruggezet zoals ze in de schone kopie staan, en nieuwe bestanden van leerlingen (zoals een nieuwe pagina) verdwijnen. De mappen `.git` en `.vscode` blijven staan.
-3. Start in opencode een nieuwe sessie.
-
-Staat je schone kopie niet in `C:\backup`? Pas dan het pad bij `set "BACKUP=..."` bovenaan het script aan. Vindt het script geen schone kopie met dezelfde naam, of lijkt het geen workshopmap? Dan stopt het zonder iets te veranderen.
-
-**Optie B: met git.** Na elke groep, in de terminal van VS Code:
+**Zonder script, met git.** `C:\opendag` is ook een git-repo. Je kunt dus ook na elke groep in de terminal van VS Code typen:
 
 ```
 git restore .
